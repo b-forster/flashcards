@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  front: MyText
+  back: MyText
+  due: false
+  deck: one
+  created_at: 2018-08-09 20:51:55
+  updated_at: 2018-08-09 20:51:55
+
+two:
+  id: 1
+  front: MyText
+  back: MyText
+  due: false
+  deck: two
+  created_at: 2018-08-09 20:51:55
+  updated_at: 2018-08-09 20:51:55
