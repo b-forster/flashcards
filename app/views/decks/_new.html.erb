@@ -1,0 +1,11 @@
+<h3>Add a New Deck</h3>
+
+<%= form_for deck do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div>
+    <%= f.submit "Create Deck" %>
+  </div>
+<% end %>

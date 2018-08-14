@@ -1014,3 +1014,904 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/new" for 127.0.0.1 at 2018-08-13 22:23:31 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 166ms (Views: 82.4ms | ActiveRecord: 10.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-08-13 22:23:44 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"26Nl7dTA/H8U3NdKrcMih4va6x7dZDY27lDIvmZs8+KzzvKPRavV3V/v6L1xmwlG3SumeNgFPV7W3BH+BbXTGw==", "user"=>{"name"=>"jim", "email"=>"jim@jim.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up!"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jim@jim.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "jim"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "jim"], ["email", "jim@jim.com"], ["password_digest", "$2a$10$FLkoUJShz7vGacMF11BIHuB3KivXu80jebO9K/iVHVWaRj3vZry5K"], ["created_at", "2018-08-14 05:23:44.781589"], ["updated_at", "2018-08-14 05:23:44.781589"]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 91ms (ActiveRecord: 5.8ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-13 22:23:44 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (7.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 60ms (Views: 37.6ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:23:47 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 49ms (Views: 46.3ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-13 22:23:55 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"oFFyZDjyaEAnw6Esz718dIbFGGn6SOGp/qTznJBvQ49TyXnrDccidJ26jgNx3VRewxtkBKkT3iLZpYZY9WheiA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:23:55 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 37ms (Views: 33.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-13 22:24:04 -0700
+Processing by DecksController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:24:04 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 41ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-13 22:24:31 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Umzo6QgFTh7Euq5W+72Oj6lKHF1jisfZ4GXYRG5CE9yh9ONmPTAEKn7DgXlF3aal7JRgMDDR+FLHZK2AC0UO2w==", "login"=>{"email"=>"max@max.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "max@max.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 76ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-13 22:24:31 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 45ms (Views: 39.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:24:38 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:24:42 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 47ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-08-13 22:24:47 -0700
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7Hs7HFc2+2cJLJC6olfv2BoeeJeiTWGLU7baxCLKwbYf4zCTYgOxU7NVv5UcN8fyX8AE+vEWXgB0t68AR83csQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:24:47 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 31ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:25:41 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:25:44 -0700
+Processing by DecksController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:25:44 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 33ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:26:15 -0700
+Processing by DecksController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:26:15 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:27:15 -0700
+  
+SyntaxError (/Users/briannaforster/Desktop/flashcards/config/routes.rb:2: syntax error, unexpected keyword_else, expecting keyword_end
+ks#index' if current_user else 'users#new'
+                              ^
+/Users/briannaforster/Desktop/flashcards/config/routes.rb:22: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+config/routes.rb:2: syntax error, unexpected keyword_else, expecting keyword_end
+config/routes.rb:22: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:27:45 -0700
+  
+SyntaxError (/Users/briannaforster/Desktop/flashcards/config/routes.rb:25: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+config/routes.rb:25: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:27:56 -0700
+  
+NameError (undefined local variable or method `current_user' for #<ActionDispatch::Routing::Mapper:0x007f8fdd694f00>):
+  
+config/routes.rb:2:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:28:10 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 39.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:15 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 70ms (Views: 25.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-13 22:28:21 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 45ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-13 22:28:27 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NGhQmGonTCFO2KQUuME8nyevQHSvaUalxDqsmcj5zA/dqZNhmonkbF96Io0aJvs2mpRjLWtHvGbIZQ5ZcCgigw==", "login"=>{"email"=>"max@max.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "max@max.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 72ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-13 22:28:27 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 42ms (Views: 30.7ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:32 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 40ms (Views: 36.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:33 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 49ms (Views: 45.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:47 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 42ms (Views: 38.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:49 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-13 22:28:55 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 46ms (Views: 41.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-13 22:28:58 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:05:37 -0700
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/briannaforster/.rbenv/versions/2.4.0/lib/ruby/gems/2.4.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by DecksController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :authorize rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-08-14 16:05:37 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 383ms (Views: 380.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-08-14 16:05:43 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rZeFfP3U6EiFVns35ok5h3oI67Wazm93dXXNewnOJt9b0zMQ4K9Tus+1onKX1SuEhI5vox3ARW3Gb6O5PdC5Gg==", "login"=>{"email"=>"max@max.com", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "max@max.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 114ms (ActiveRecord: 11.6ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:05:43 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (2.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/index.html.erb within layouts/application (35.8ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 8.2ms)
+
+
+  
+ActionView::Template::Error (Missing partial decks/_new, application/_new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/briannaforster/Desktop/flashcards/app/views"
+):
+    5:   <% end %>
+    6: </ul>
+    7: 
+    8: <%= render partial: 'new' %>
+  
+app/views/decks/index.html.erb:8:in `_app_views_decks_index_html_erb___2693891251124716118_70134959616280'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:06:55 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.3ms)
+  Rendered decks/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.9ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create a New Deck</h1>
+    2: 
+    3: <%= form_for @deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/_new.html.erb:3:in `_app_views_decks__new_html_erb___1960470826283895240_70135006781220'
+app/views/decks/index.html.erb:8:in `_app_views_decks_index_html_erb___2693891251124716118_70135006740940'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:11:20 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (5.4ms)
+  Rendered decks/index.html.erb within layouts/application (21.0ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 6.3ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create a New Deck</h1>
+    2: 
+    3: <%= form_for @deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/_new.html.erb:3:in `_app_views_decks__new_html_erb___1960470826283895240_70135012656420'
+app/views/decks/index.html.erb:8:in `_app_views_decks_index_html_erb___2693891251124716118_70135012908080'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:11:22 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.5ms)
+  Rendered decks/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Create a New Deck</h1>
+    2: 
+    3: <%= form_for @deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/_new.html.erb:3:in `_app_views_decks__new_html_erb___1960470826283895240_70134967986320'
+app/views/decks/index.html.erb:8:in `_app_views_decks_index_html_erb___2693891251124716118_70134968212080'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:18:15 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.2ms)
+  Rendered decks/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 91ms (Views: 43.7ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:18:45 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (4.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.8ms)
+  Rendered decks/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 75ms (Views: 66.2ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:19:12 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hnJKWTjBesn0YolU/CdNofi//H2P3q4/oEXGuqrrFStwNvw1JbrBO76BUBGNe1+iBjl4awjQhCUTX6h4nvWK7g==", "deck"=>{"name"=>"test"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/decks_controller.rb:28:in `deck_params'
+app/controllers/decks_controller.rb:8:in `create'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:24:56 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  Rendered decks/index.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 12.7ms)
+
+
+  
+SyntaxError (/Users/briannaforster/Desktop/flashcards/app/views/decks/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+( render partial: 'new' locals: deck: Deck.new );
+                              ^):
+  
+app/views/decks/index.html.erb:8: syntax error, unexpected tIDENTIFIER, expecting ')'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:25:56 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 61ms (Views: 53.9ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:26:01 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fW5mp4+LtI52tgCIO6JNvYNrOnK2jscpsvfKgrBp8YOLKtDLkvAPfDxV2c1K/l++fe2+ZDGA7TMB7aRAhHduRg==", "deck"=>{"name"=>"test2"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: name):
+  
+app/controllers/decks_controller.rb:27:in `deck_params'
+app/controllers/decks_controller.rb:8:in `create'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:27:19 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.7ms)
+  Rendered decks/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 85ms (Views: 50.1ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:27:22 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bBnXYM3tsllsWJYj2GdHARXYdYU89HTeMaymyevSKHGaXWEM0JYJqya7T2apO1UC617xk7v6XsSCtsgL38y3tA==", "deck"=>{"name"=>"test3"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:10
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:10
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::MissingTemplate (Missing template decks/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/briannaforster/Desktop/flashcards/app/views"
+):
+  
+app/controllers/decks_controller.rb:16:in `create'
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:28:52 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bBnXYM3tsllsWJYj2GdHARXYdYU89HTeMaymyevSKHGaXWEM0JYJqya7T2apO1UC617xk7v6XsSCtsgL38y3tA==", "deck"=>{"name"=>"test3"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:10
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:10
+  Rendering decks/_new.html.erb within layouts/application
+  Rendered decks/_new.html.erb within layouts/application (289.5ms)
+Completed 500 Internal Server Error in 348ms (ActiveRecord: 9.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `deck' for #<#<Class:0x007f9328102530>:0x007f93280f3b20>
+Did you mean?  @deck):
+    1: <h3>Add a New Deck</h3>
+    2: 
+    3: <%= form_for deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/_new.html.erb:3:in `_app_views_decks__new_html_erb___1960470826283895240_70135004485320'
+app/controllers/decks_controller.rb:16:in `create'
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:29:33 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bBnXYM3tsllsWJYj2GdHARXYdYU89HTeMaymyevSKHGaXWEM0JYJqya7T2apO1UC617xk7v6XsSCtsgL38y3tA==", "deck"=>{"name"=>"test3"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:10
+  Rendering decks/_new.html.erb within layouts/application
+  Rendered decks/_new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 71ms (Views: 65.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:29:38 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (2.9ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (3.3ms)
+  Rendered decks/index.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 9.8ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h3>Add a New Deck</h3>
+    2: 
+    3: <%= form_for @deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/_new.html.erb:3:in `_app_views_decks__new_html_erb___1960470826283895240_70135007156160'
+app/views/decks/index.html.erb:8:in `_app_views_decks_index_html_erb___2693891251124716118_70135013834820'
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:30:03 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.2ms)
+  Rendered decks/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 105ms (Views: 59.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:30:07 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iDeYpk43C33KYYH3ne7slDSVnemRGua0C5Set99EeTN+cy7KU0ywj4CCWLLssv6XyhMZ/xYUzK64jvB161rm9g==", "deck"=>{"name"=>"q"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:10
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:10
+  Rendering decks/index.html.erb within layouts/application
+  Rendered decks/index.html.erb within layouts/application (3.6ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h2><%= current_user.name %>'s Decks</h2>
+    2: <ul>
+    3:   <% @decks.each do |deck| %>
+    4:     <li><%= deck.name %></li>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/decks/index.html.erb:3:in `_app_views_decks_index_html_erb___2693891251124716118_70135007207180'
+app/controllers/decks_controller.rb:16:in `create'
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:33:07 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iDeYpk43C33KYYH3ne7slDSVnemRGua0C5Set99EeTN+cy7KU0ywj4CCWLLssv6XyhMZ/xYUzK64jvB161rm9g==", "deck"=>{"name"=>"q"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+  Rendering decks/index.html.erb within layouts/application
+  Rendered decks/index.html.erb within layouts/application (7.8ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 6.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <h2><%= current_user.name %>'s Decks</h2>
+    2: <ul>
+    3:   <% @decks.each do |deck| %>
+    4:     <li><%= deck.name %></li>
+    5:   <% end %>
+    6: </ul>
+  
+app/views/decks/index.html.erb:3:in `_app_views_decks_index_html_erb___2693891251124716118_70135004092720'
+app/controllers/decks_controller.rb:20:in `create'
+  [1m[36mDeck Load (1.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" ORDER BY "decks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:35:08 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.4ms)
+  Rendered decks/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 72ms (Views: 35.1ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:35:14 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5NxbkpTPIbfqN2vWQ0H4OSIijSTSt/8WdmHaKcpaWY0SmO3+ibSaRaDUspMyHeo63KQJMlW51QzFe7Tr/kTGSA==", "deck"=>{"name"=>"w"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:35:14 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 49ms (Views: 41.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:35:33 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 75ms (Views: 46.3ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:35:36 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CjNNYQtDohUeQiwgJDMzc7DgvaE9yBnLTqxcvmhA2yH8d/sNFjgZ51Sh9WVVbyFwTmY5t7rGM9H9tjJ8XF5E5A==", "deck"=>{"name"=>"e"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:35:36 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.2ms)
+  Rendered decks/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 36ms (Views: 32.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:40:29 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J5WxEHLK9v6/27QWgkAeW4er+59HrU+Fi6MsHnHy+nPR0Qd8b7FNDPU4bVPzHAxYeS1/icCjZZ84uULcRexltg==", "deck"=>{"name"=>"a"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 48ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:40:29 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.8ms)
+  Rendered decks/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 47ms (Views: 42.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:43:48 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.0ms)
+  Rendered decks/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 97ms (Views: 66.1ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:43:52 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XfpFaA34rU103kSoa5pXU9HNBDEgDDxyVGaryu5GcS2rvvMEEIMWvz49ne0axkVQL0uAJ6cCFmjnfMUI2lju6A==", "deck"=>{"name"=>"s"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 9ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:43:52 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.5ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (2.4ms)
+  Rendered decks/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 58ms (Views: 47.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:49:23 -0700
+  
+SyntaxError (/Users/briannaforster/Desktop/flashcards/app/controllers/decks_controller.rb:19: syntax error, unexpected '<'
+rors.full_messages.map { |e| <li>e</li>}
+                              ^
+/Users/briannaforster/Desktop/flashcards/app/controllers/decks_controller.rb:19: unterminated regexp meets end of file
+/Users/briannaforster/Desktop/flashcards/app/controllers/decks_controller.rb:19: syntax error, unexpected end-of-input, expecting '}'):
+  
+app/controllers/decks_controller.rb:19: syntax error, unexpected '<'
+app/controllers/decks_controller.rb:19: unterminated regexp meets end of file
+app/controllers/decks_controller.rb:19: syntax error, unexpected end-of-input, expecting '}'
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:49:35 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 146ms (Views: 95.1ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:49:39 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SLjoGu/hjygf21BwOhQEZKXBE3dy9DU/kIGefF59IbW+/F528po02lU4iTVLSBZnW0eXYfX6HyUjm/C+amO+cA==", "deck"=>{"name"=>"a"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:49:39 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 49ms (Views: 43.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:50:11 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 87ms (Views: 52.9ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:50:13 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9Ds4elfOR82c2y+Dg12RaS2EOluS1vpsaiNtpK8zfc0Cf44WSrX8P9Y49sbyAYNq0wK+TRXY0HbZOQNmmy3iCA==", "deck"=>{"name"=>"d"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:14
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:14
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 8ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:50:13 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.7ms)
+  Rendered decks/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 57ms (Views: 52.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:51:46 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (4.0ms)
+  Rendered decks/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 90ms (Views: 57.5ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/decks" for 127.0.0.1 at 2018-08-14 16:51:48 -0700
+Processing by DecksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"asrNGCIELzXTmruUrLbwwuEt/kt+9+VKl+x9Sfy6XjQGtPzOJRboxpz7VLc78ZZ9M1KRr5S+xnXD4DoUllTGpg==", "deck"=>{"name"=>"a"}, "commit"=>"Create Deck"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:15
+  [1m[36mDeck Create (23.0ms)[0m  [1m[32mINSERT INTO "decks" ("name", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "a"], ["user_id", 1], ["created_at", "2018-08-14 23:51:48.377075"], ["updated_at", "2018-08-14 23:51:48.377075"]]
+  ↳ app/controllers/decks_controller.rb:15
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:15
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 36ms (ActiveRecord: 28.8ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-14 16:51:48 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.3ms)
+  Rendered decks/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-14 16:52:21 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 70ms (Views: 57.7ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDeck Load (0.6ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]

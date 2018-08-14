@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'users#new'
+  root to: 'decks#index' 
     
     # sign up page with form:
   get 'users/new' => 'users#new', as: :new_user

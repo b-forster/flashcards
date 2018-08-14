@@ -4,3 +4,5 @@
     <li><%= deck.name %></li>
   <% end %>
 </ul>
+
+<%= render partial: 'new', locals: { deck: Deck.new } %>
