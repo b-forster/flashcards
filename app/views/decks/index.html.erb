@@ -1,0 +1,6 @@
+<h2><%= current_user.name %>'s Decks</h2>
+<ul>
+  <% @decks.each do |deck| %>
+    <li><%= deck.name %></li>
+  <% end %>
+</ul>
