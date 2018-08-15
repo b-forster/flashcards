@@ -1,1 +1,20 @@
 <h2>Stats for <%= @deck.name %></h2>
+
+<table>
+  <tr>
+    <td>Number of cards</td>
+    <td><%= @deck.cards.count %></td>
+  </tr>
+  <tr>
+    <td>Last reviewed</td>
+    <td><%= @deck.last_seen || 'No reviews yet!'%></td>
+  </tr>
+  <tr>
+    <td>Created by</td>
+    <td><%= @deck.user.name %></td>
+  </tr>
+</table>
+
+<%= button_tag 'Review' %>
+<br>
+< <%= link_to 'Back to Deck List', decks_path %>
