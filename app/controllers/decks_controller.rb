@@ -13,7 +13,7 @@ class DecksController < ApplicationController
     @deck.user = current_user
 
     if @deck.save
-      flash[:notice] = "Your new deck has been added!"
+      flash[:notice] = ["Your new deck has been added!"]
 
       redirect_to decks_path
     else

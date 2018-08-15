@@ -18,11 +18,27 @@
     <hr>
 
     <% if notice %>
-            <%= notice %>
+      <% if notice.kind_of?(Array) %>
+        <ul>
+          <% notice.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% elsif notice.kind_of?(String) %>
+        <%= notice %>
+      <% end %>
     <% end %>
     
     <% if alert %>
-              <%= alert %>
+      <% if alert.kind_of?(Array) %>
+        <ul>
+          <% alert.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% elsif alert.kind_of?(String) %>
+        <%= alert %>
+      <% end %>
     <% end %>
     
     <%= yield %>
