@@ -22,6 +22,12 @@ class DecksController < ApplicationController
     end
   end
 
+  def show
+    @deck = Deck.find(params[:id])
+
+    render :show
+  end
+
   private
 
   def deck_params

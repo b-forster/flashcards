@@ -2,7 +2,7 @@
 <ul>
   <% @decks.each do |deck| %>
     <li>
-      <%= deck.name %>
+      <%= link_to deck.name, deck%>
       <%= button_tag :submit do %>
         <%= image_tag("settings2.png") %>
       <% end %>
