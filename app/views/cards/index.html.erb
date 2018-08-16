@@ -2,7 +2,7 @@
 
 <table>
   <% @cards.each do |card| %>
-    <tr class="card-row">
+    <tr class="card-row" onclick="location.href='<%= edit_deck_card_url(@deck, card) %>'">
       <td>
         <%= card.front %>
       </td>
@@ -12,6 +12,10 @@
     </tr>
   <% end %>
 </table>
+
+<div>
+  <%= render partial: 'edit', locals: { deck: @deck, card: @cards.first } %>
+</div>
 
 <div>
   < <%= link_to 'Back to Deck', deck_path(@deck) %>

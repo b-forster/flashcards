@@ -28,6 +28,24 @@ class CardsController < ApplicationController
     end
   end
 
+  def edit
+    @card = Card.find(params[:id])
+    @deck = @card.deck
+  end
+
+  def update
+    @card = Card.find(params[:id])
+    @deck = @card.deck
+
+    @card.update_attributes(card_params)
+
+    if @card.update(card_params)
+      redirect_to deck_cards_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def card_params

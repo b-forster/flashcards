@@ -1,0 +1,13 @@
+<%= form_for [deck, card] do |f| %>
+  <div>
+    <%= f.label :front %>
+    <%= f.text_area :front %>
+  </div>
+  <div>
+    <%= f.label :back %>
+    <%= f.text_area :back %>
+  </div>
+  <div>
+    <%= f.submit "Update Card" %>
+  </div>
+<% end %>
