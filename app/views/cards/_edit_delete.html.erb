@@ -9,5 +9,6 @@
   </div>
   <div>
     <%= f.submit "Update Card" %>
+    <%= button_to 'Delete Card', deck_card_path(deck, card), data: { confirm: "Delete this card permanently?" }, method: :delete %>
   </div>
 <% end %>

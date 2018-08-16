@@ -46,6 +46,14 @@ class CardsController < ApplicationController
     end
   end
 
+  def destroy
+    @card = Card.find(params[:id])
+    @deck = @card.deck
+
+    @card.destroy
+    redirect_to deck_cards_path
+  end
+
   private
 
   def card_params
