@@ -17,3 +17,6 @@ module Flashcards
     # the framework and any gems in your application.
   end
 end
+
+# Serve error pages from Rails routes, rather than using static error pages in public/
+config.exceptions_app = self.routes
