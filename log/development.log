@@ -6504,3 +6504,270 @@ Processing by DecksController#edit as HTML
 Completed 200 OK in 54ms (Views: 43.8ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/decks/4/edit" for 127.0.0.1 at 2018-08-15 17:52:59 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (6.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 54ms (Views: 39.7ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:53:11 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (3.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (1.1ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 59ms (Views: 51.4ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 17:53:16 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (3.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 48ms (Views: 39.5ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:58:49 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 74ms (Views: 43.7ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 17:58:51 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (224.0ms)
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `deck' for #<#<Class:0x007ff47ef43538>:0x007ff47edc1188>
+Did you mean?  @deck):
+    1: <h2>Update <%= @deck.name %></h2>
+    2: 
+    3: <%= form_for deck do |f| %>
+    4:   <div>
+    5:     <%= f.label :name %>
+    6:     <%= f.text_field :name, autofocus: true %>
+  
+app/views/decks/edit.html.erb:3:in `_app_views_decks_edit_html_erb__2937357186085763911_70344038551080'
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 17:59:06 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 55ms (Views: 48.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/decks/3" for 127.0.0.1 at 2018-08-15 17:59:13 -0700
+Processing by DecksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PhqaKFmouv1V6wh5UrW75lMgAX7a6GTdMrAZHB/g8/rIXixERNMBDx8I0Twj6anlraaFaF3mTseBqnfeK/5sPw==", "deck"=>{"name"=>"qq", "description"=>"New description"}, "commit"=>"Update Deck", "id"=>"3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (1.0ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/decks_controller.rb:39
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.0ms)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/decks_controller.rb:39:in `update'
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 18:09:08 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 61ms (Views: 25.0ms | ActiveRecord: 9.9ms)
+
+
+Started PATCH "/decks/3" for 127.0.0.1 at 2018-08-15 18:09:12 -0700
+Processing by DecksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kZI5s7GDObfu7Ykws3H2nnMNRyHQxx37MLLrNZ1PbyBn1o/frPiCRaQOUHXCLeSdjYvDN1fJN+GDqIX3qVHw5Q==", "deck"=>{"name"=>"qq", "description"=>"asdfasdf"}, "commit"=>"Update Deck", "id"=>"3"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mDeck Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "decks" WHERE "decks"."name" = $1 AND "decks"."id" != $2 AND "decks"."user_id" = $3 LIMIT $4[0m  [["name", "qq"], ["id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mDeck Update (5.1ms)[0m  [1m[33mUPDATE "decks" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "decks"."id" = $4[0m  [["name", "qq"], ["description", "asdfasdf"], ["updated_at", "2018-08-16 01:09:12.860809"], ["id", 3]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:41
+  [1m[36mDeck Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "decks" WHERE "decks"."name" = $1 AND "decks"."id" != $2 AND "decks"."user_id" = $3 LIMIT $4[0m  [["name", "qq"], ["id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:41
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:41
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 36ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 18:09:12 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 41ms (Views: 36.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/decks/3" for 127.0.0.1 at 2018-08-15 18:09:15 -0700
+Processing by DecksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:27
+  Rendering decks/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  ↳ app/views/decks/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/decks/show.html.erb:18
+  Rendered decks/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 58ms (Views: 52.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/decks/3" for 127.0.0.1 at 2018-08-15 18:09:18 -0700
+Processing by DecksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (3.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:27
+  Rendering decks/show.html.erb within layouts/application
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  ↳ app/views/decks/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/decks/show.html.erb:18
+  Rendered decks/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 53ms (Views: 33.7ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 18:09:21 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 37ms (Views: 30.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/decks/3" for 127.0.0.1 at 2018-08-15 18:09:27 -0700
+Processing by DecksController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"wv+XGASKMDtSvdJB1TcZwNxW+UmUTQv3wL3pbgX2tJlDFTtjJskBhIWf/4ExZ2R1CXUj6SzFwfsNYzAn8m6LUA==", "deck"=>{"name"=>"qqq", "description"=>"asdfasdf new"}, "commit"=>"Update Deck", "id"=>"3"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:37
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mDeck Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "decks" WHERE "decks"."name" = $1 AND "decks"."id" != $2 AND "decks"."user_id" = $3 LIMIT $4[0m  [["name", "qqq"], ["id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[36mDeck Update (0.4ms)[0m  [1m[33mUPDATE "decks" SET "name" = $1, "description" = $2, "updated_at" = $3 WHERE "decks"."id" = $4[0m  [["name", "qqq"], ["description", "asdfasdf new"], ["updated_at", "2018-08-16 01:09:27.109546"], ["id", 3]]
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:39
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:41
+  [1m[36mDeck Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "decks" WHERE "decks"."name" = $1 AND "decks"."id" != $2 AND "decks"."user_id" = $3 LIMIT $4[0m  [["name", "qqq"], ["id", 3], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:41
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:41
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 25ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 18:09:27 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/decks/3" for 127.0.0.1 at 2018-08-15 18:09:28 -0700
+Processing by DecksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:27
+  Rendering decks/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  ↳ app/views/decks/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/decks/show.html.erb:18
+  Rendered decks/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 1.2ms)
+
+

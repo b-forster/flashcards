@@ -1,1 +1,15 @@
 <h2>Update <%= @deck.name %></h2>
+
+<%= form_for @deck do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.submit "Update Deck" %>
+  </div>
+<% end %>

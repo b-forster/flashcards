@@ -30,11 +30,13 @@ class DecksController < ApplicationController
   end
 
   def edit
-    @deck = Deck.find(params[:id]) # #
+    @deck = Deck.find(params[:id])
   end
 
   def update
-    @deck = Deck.find(params[:id]) # #
+    @deck = Deck.find(params[:id])
+
+    @deck.update_attributes(deck_params)
 
     if @deck.update(deck_params)
       redirect_to decks_path
