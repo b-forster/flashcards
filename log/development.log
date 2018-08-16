@@ -6771,3 +6771,34 @@ Processing by DecksController#show as HTML
 Completed 200 OK in 36ms (Views: 32.3ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 18:13:00 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.8ms)
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 49ms (Views: 43.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/decks/3" for 127.0.0.1 at 2018-08-15 18:13:01 -0700
+Processing by DecksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:27
+  Rendering decks/show.html.erb within layouts/application
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 3]]
+  ↳ app/views/decks/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/decks/show.html.erb:18
+  Rendered decks/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 43ms (Views: 38.5ms | ActiveRecord: 1.2ms)
+
+
