@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        card:
+          attributes:
+            front:
+              taken: "already exists in this deck"
