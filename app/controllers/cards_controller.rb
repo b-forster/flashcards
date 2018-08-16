@@ -8,6 +8,7 @@ class CardsController < ApplicationController
 
   def new
     @deck = Deck.find(params[:deck_id])
+    @card = Card.new
   end
 
   def create
@@ -17,7 +18,7 @@ class CardsController < ApplicationController
     @card.deck = @deck
 
     if @card.save
-      flash[:notice] = ["Card added successfully"]
+      flash[:notice] = ["Card added successfully!"]
 
       redirect_to deck_cards_path
     else
@@ -30,6 +31,6 @@ class CardsController < ApplicationController
   private
 
   def card_params
-    params.require(:cards).permit(:front, :back, :due, :deck)
+    params.require(:card).permit(:front, :back, :due, :deck)
   end
 end
