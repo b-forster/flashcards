@@ -11,6 +11,7 @@ class DecksController < ApplicationController
   def create
     @deck = Deck.new(deck_params)
     @deck.user = current_user
+    @deck.created_by = current_user
 
     if @deck.save
       flash[:notice] = ["Your new deck has been added!"]
@@ -31,6 +32,6 @@ class DecksController < ApplicationController
   private
 
   def deck_params
-    params.require(:deck).permit(:name, :user)
+    params.require(:deck).permit(:name, :user, :created_by, :description)
   end
 end

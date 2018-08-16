@@ -2,6 +2,10 @@
 
 <table>
   <tr>
+    <td>Description</td>
+    <td><%= @deck.description %></td>
+  </tr>
+  <tr>
     <td>Number of cards</td>
     <td><%= @deck.cards.count %></td>
   </tr>
@@ -11,7 +15,7 @@
   </tr>
   <tr>
     <td>Created by</td>
-    <td><%= @deck.user.name %></td>
+    <td><%= @deck.created_by.name %></td>
   </tr>
 </table>
 

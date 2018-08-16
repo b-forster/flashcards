@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_035155) do
 
   create_table "decks", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.bigint "user_id"
     t.integer "cards_due"
     t.date "last_seen"
