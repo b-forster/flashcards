@@ -20,8 +20,15 @@
 </table>
 
 <div>
-  <%= button_tag 'Browse Cards' %>
-  <%= button_tag 'Start Review' %>
+  <%= button_tag title:'Add card' do %>
+    <%= image_tag("add.png") %>
+  <% end %>
+  <%= button_tag title:'View cards list' do %>
+    <%= image_tag("view.png") %>
+  <% end %>
+  <%= button_tag title:'Start review' do %>
+    <%= image_tag("start.png") %>
+  <% end %>
 </div>
 
 <div>
