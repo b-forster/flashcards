@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   # create (post) action for when sign up form is submitted:
   post 'users' => 'users#create'
 
-  get '/decks/:id', to: 'decks#show', as: 'deck'
-  resources :decks, except: :show #do
-  #   resources :cards
-  # end
+  resources :decks do
+    resources :cards
+  end
 
   # log in page with form:
   get '/login'     => 'sessions#new'

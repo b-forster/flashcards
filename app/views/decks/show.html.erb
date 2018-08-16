@@ -23,7 +23,7 @@
   <%= button_tag title:'Add card' do %>
     <%= image_tag("add.png") %>
   <% end %>
-  <%= button_tag title:'View cards list' do %>
+  <%= button_to deck_cards_path(@deck), title:'View cards list', action: :index, method: :get do %>
     <%= image_tag("view.png") %>
   <% end %>
   <%= button_tag title:'Start review' do %>
