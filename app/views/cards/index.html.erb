@@ -1,5 +1,18 @@
 <h2>View All Cards in <%= @deck.name %></h2>
 
+<table>
+  <% @cards.each do |card| %>
+    <tr class="card-row">
+      <td>
+        <%= card.front %>
+      </td>
+      <td>
+        <%= card.back %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
 <div>
   < <%= link_to 'Back to Deck', deck_path(@deck) %>
 </div>
