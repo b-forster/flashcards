@@ -20,7 +20,7 @@
 </table>
 
 <div>
-  <%= button_tag title:'Add card' do %>
+  <%= button_to new_deck_card_url(@deck), title:'Add card', action: :new, method: :get do %>
     <%= image_tag("add.png") %>
   <% end %>
   <%= button_to deck_cards_path(@deck), title:'View cards list', action: :index, method: :get do %>
