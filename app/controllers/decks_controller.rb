@@ -29,22 +29,24 @@ class DecksController < ApplicationController
     render :show
   end
 
+  def edit
+    @deck = Deck.find(params[:id]) # #
+  end
+
   def update
-    @deck = Deck.find(params[:id]) #
+    @deck = Deck.find(params[:id]) # #
 
-    @deck.assign_attributes(params[:deck]) #
-
-    if @deck.save
-      redirect decks_path
+    if @deck.update(deck_params)
+      redirect_to decks_path
     else
-      render :'articles/edit'
+      render :edit
     end
   end
 
   def destroy
-    @article = Article.find(params[:id])
-    @article.destroy
-    redirect decks_path
+    @deck = Deck.find(params[:id])
+    @deck.destroy
+    redirect_to decks_path
   end
 
   private

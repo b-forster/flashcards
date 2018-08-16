@@ -4,7 +4,7 @@
       <%= link_to 'Update', edit_deck_path(deck) %>
     </li>
     <li>
-      <%= link_to 'Delete' %>
+      <%= link_to 'Delete', deck_path(deck), data: { confirm: "Are you sure you want to permanently delete this deck? \n\nIf this is a publicly shared deck, only your local copy will be deleted." }, method: :delete %>
     </li>
   </ul>
 </div>

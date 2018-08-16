@@ -5743,3 +5743,764 @@ Processing by DecksController#index as HTML
 Completed 200 OK in 53ms (Views: 47.6ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:05 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.9ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.8ms)
+  Rendered decks/index.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 57ms (Views: 52.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:24:05 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (285.1ms)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `deck' for #<#<Class:0x007ff4811bf0a8>:0x007ff4801bf3d8>):
+    1: <h2>Update <%= deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344049033020'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:10 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.1ms)
+  Rendered decks/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 50ms (Views: 45.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:17 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_new.html.erb (1.3ms)
+  Rendered decks/index.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 52ms (Views: 47.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:24:18 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344008772060'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:24 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_new.html.erb (2.3ms)
+  Rendered decks/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 51ms (Views: 46.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:24:32 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344052880380'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:35 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.3ms)
+  Rendered decks/index.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 43ms (Views: 39.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:24:46 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344005382100'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:24:57 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 50ms (Views: 44.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:25:14 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (4.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344048564500'
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" ORDER BY "decks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" ORDER BY "decks"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:26:54 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 78ms (Views: 52.7ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:26:55 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (18.8ms)
+Completed 200 OK in 45ms (Views: 40.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:26:56 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344057074640'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:27:00 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.3ms)
+  Rendered decks/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 54ms (Views: 50.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:27:01 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 56ms (Views: 52.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:27:03 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (3.2ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344049425600'
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:28:36 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (215.6ms)
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 2.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `deck' for #<#<Class:0x007ff47b7e9600>:0x007ff47b7d7518>):
+    1: <h2>Update <%= deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344010322180'
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:28:46 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344009885160'
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:28:56 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.9ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344057534060'
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:29:09 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 29ms (Views: 26.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:29:17 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (5.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `description' for nil:NilClass):
+    1: <h2>Update <%= @deck.description %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344009219960'
+Started GET "/decks/2/edit" for 127.0.0.1 at 2018-08-15 17:29:24 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/decks/1" for 127.0.0.1 at 2018-08-15 17:29:35 -0700
+Processing by DecksController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:27
+  Rendering decks/show.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "cards" WHERE "cards"."deck_id" = $1[0m  [["deck_id", 1]]
+  ↳ app/views/decks/show.html.erb:10
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/decks/show.html.erb:18
+  Rendered decks/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 75ms (Views: 32.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:29:44 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 29ms (Views: 25.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:31:54 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 41ms (Views: 23.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:31:56 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 25ms (Views: 22.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:32:14 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (2.8ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <h2>Update <%= @deck.name %></h2>
+  
+app/views/decks/edit.html.erb:1:in `_app_views_decks_edit_html_erb__2937357186085763911_70344004472380'
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:39:15 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+Completed 400 Bad Request in 35ms (ActiveRecord: 8.3ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: deck):
+  
+app/controllers/decks_controller.rb:51:in `deck_params'
+app/controllers/decks_controller.rb:35:in `edit'
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:39:32 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 73ms (Views: 33.8ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/decks/1/edit" for 127.0.0.1 at 2018-08-15 17:44:51 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 62ms (Views: 23.1ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:44:55 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.9ms)
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 57ms (Views: 49.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:44:58 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (1.6ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.8ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 52ms (Views: 45.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:46:16 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.8ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (32.8ms)
+Completed 200 OK in 89ms (Views: 50.8ms | ActiveRecord: 10.3ms)
+
+
+Started DELETE "/decks.1" for 127.0.0.1 at 2018-08-15 17:46:21 -0700
+  
+ActionController::RoutingError (No route matches [DELETE] "/decks.1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:48:01 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.9ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.6ms)
+  Rendered decks/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 78ms (Views: 52.8ms | ActiveRecord: 5.9ms)
+
+
+Started DELETE "/decks.1" for 127.0.0.1 at 2018-08-15 17:48:07 -0700
+  
+ActionController::RoutingError (No route matches [DELETE] "/decks.1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-08-15 17:48:55 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_new.html.erb (1.5ms)
+  Rendered decks/index.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 80ms (Views: 49.1ms | ActiveRecord: 7.2ms)
+
+
+Started DELETE "/decks/1" for 127.0.0.1 at 2018-08-15 17:49:00 -0700
+Processing by DecksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HwKK0S68Gd9Tt/zph1oUmJKERKBZbT8Nf3VsKTOUJV3pRjy9M8eiLRlUJaz2BgabbALAtt5jFRfMbwLrB4q6mA==", "id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (1.9ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:47
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:48
+  [1m[36mDeck Destroy (3.7ms)[0m  [1m[31mDELETE FROM "decks" WHERE "decks"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/decks_controller.rb:48
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:48
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 25ms (ActiveRecord: 10.8ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:49:00 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (2.1ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_new.html.erb (2.0ms)
+  Rendered decks/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 52ms (Views: 45.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:50:17 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_new.html.erb (2.0ms)
+  Rendered decks/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 51ms (Views: 45.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:50:33 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.9ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 53ms (Views: 45.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:50:46 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (1.0ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.4ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_new.html.erb (1.4ms)
+  Rendered decks/index.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 59ms (Views: 54.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:51:55 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.2ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.3ms)
+  Rendered decks/_edit_delete.html.erb (0.6ms)
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_new.html.erb (1.9ms)
+  Rendered decks/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 69ms (Views: 64.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:52:02 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.4ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (0.7ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.2ms)
+  Rendered decks/_edit_delete.html.erb (0.5ms)
+  Rendered decks/_new.html.erb (2.6ms)
+  Rendered decks/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 53ms (Views: 49.1ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/decks/2" for 127.0.0.1 at 2018-08-15 17:52:09 -0700
+Processing by DecksController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fm6QyYusBRIK8+GbCQi/1bo9BYVzNm9Rm+z1y2RddnaIKiallte+4EAQON54VK3WRLuBk/Q4RUso9psJUEPpsw==", "id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.7ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:47
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/decks_controller.rb:48
+  [1m[36mDeck Destroy (0.9ms)[0m  [1m[31mDELETE FROM "decks" WHERE "decks"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/decks_controller.rb:48
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/decks_controller.rb:48
+Redirected to http://localhost:3000/decks
+Completed 302 Found in 11ms (ActiveRecord: 4.2ms)
+
+
+Started GET "/decks" for 127.0.0.1 at 2018-08-15 17:52:09 -0700
+Processing by DecksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendering decks/index.html.erb within layouts/application
+  [1m[36mDeck Load (0.3ms)[0m  [1m[34mSELECT "decks".* FROM "decks" WHERE "decks"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/decks/index.html.erb:3
+  Rendered decks/_edit_delete.html.erb (1.1ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_edit_delete.html.erb (0.1ms)
+  Rendered decks/_new.html.erb (1.9ms)
+  Rendered decks/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 49ms (Views: 41.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/decks/3/edit" for 127.0.0.1 at 2018-08-15 17:52:14 -0700
+Processing by DecksController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mDeck Load (0.8ms)[0m  [1m[34mSELECT  "decks".* FROM "decks" WHERE "decks"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/decks_controller.rb:33
+  Rendering decks/edit.html.erb within layouts/application
+  Rendered decks/edit.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 54ms (Views: 43.8ms | ActiveRecord: 1.1ms)
+
+
