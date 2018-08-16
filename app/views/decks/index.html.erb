@@ -6,6 +6,7 @@
       <%= button_tag :submit do %>
         <%= image_tag("settings2.png") %>
       <% end %>
+      <%= render partial: 'edit_delete', locals: { deck: deck } %>
     </li>
   <% end %>
 </ul>
