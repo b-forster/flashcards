@@ -15,8 +15,8 @@ module Flashcards
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+    # Serve error pages from Rails routes, rather than using static error pages in public/
+    config.exceptions_app = self.routes
   end
 end
-
-# Serve error pages from Rails routes, rather than using static error pages in public/
-config.exceptions_app = self.routes
