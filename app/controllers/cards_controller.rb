@@ -6,6 +6,11 @@ class CardsController < ApplicationController
     @cards = @deck.cards
   end
 
+  def show
+    @deck = Deck.find(params[:deck_id])
+    @card = Card.find(params[:id])
+  end
+
   def new
     @deck = Deck.find(params[:deck_id])
     @card = Card.new

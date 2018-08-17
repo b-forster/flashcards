@@ -1,0 +1,19 @@
+<h2>Reviewing <%= @deck.name %></h2>
+
+<table class='card'>
+  <tr class='front'>
+    <td>
+      <%= @card.front %>
+    </td>
+  </tr>
+  <tr class='back'>
+    <td>
+      <%= @card.back %>
+    </td>
+  </tr>
+  <tr class='difficulty-btn-row'>
+    <td>
+      <%= button_tag 'Wrong' %>
+      <%= button_tag 'Correct' %>
+    </td>
+</table>
