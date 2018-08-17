@@ -26,8 +26,10 @@
   <%= button_to deck_cards_path(@deck), title:'View cards list', action: :index, method: :get do %>
     <%= image_tag("view.png") %>
   <% end %>
-  <%= button_tag title:'Start review' do %>
-    <%= image_tag("start.png") %>
+  <% if @deck.cards.any? %>
+    <%= button_to deck_card_path(@deck, @random_card), title:'Start review', method: :get do %>
+      <%= image_tag("start.png") %>
+    <% end %>
   <% end %>
 </div>
 

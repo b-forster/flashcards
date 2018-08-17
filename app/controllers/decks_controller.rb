@@ -25,6 +25,7 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
+    @random_card = @deck.cards.sample
 
     render :show
   end
