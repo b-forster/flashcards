@@ -1,21 +1,25 @@
 <h2>View All Cards in <%= @deck.name %></h2>
 
-<table>
-  <% @cards.each do |card| %>
-    <tr class="card-row" onclick="location.href='<%= edit_deck_card_url(@deck, card) %>'">
-      <td>
-        <%= card.front %>
-      </td>
-      <td>
-        <%= card.back %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% if @deck.cards.any? %>
+  <table>
+    <% @cards.each do |card| %>
+      <tr class="card-row" onclick="location.href='<%= edit_deck_card_url(@deck, card) %>'">
+        <td>
+          <%= card.front %>
+        </td>
+        <td>
+          <%= card.back %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-<div>
-  <%= render partial: 'edit_delete', locals: { deck: @deck, card: @cards.first } %>
-</div>
+  <div>
+    <%= render partial: 'edit_delete', locals: { deck: @deck, card: @cards.first } %>
+  </div>
+<% else %>
+  <p>No cards added yet!</p>
+<% end %>
 
 <div>
   < <%= link_to 'Back to Deck', deck_path(@deck) %>
