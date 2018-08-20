@@ -3,7 +3,7 @@
 <% if @deck.cards.any? %>
   <table>
     <% @cards.each do |card| %>
-      <tr class="card-row" onclick="location.href='<%= edit_deck_card_url(@deck, card) %>'">
+      <tr class="card-row">
         <td>
           <%= card.front %>
         </td>
