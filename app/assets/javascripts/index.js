@@ -1,5 +1,9 @@
 $( document ).ready(function() {
-  // Make first row highlighted by default
+  highlightRow();
+});
+
+function highlightRow(){
+  // Highlight first table row by default
   $('.card-row').first().addClass('highlighted')
 
   // Move highlight to new table row when clicked
@@ -7,4 +11,4 @@ $( document ).ready(function() {
     $('.highlighted').removeClass('highlighted');
     $(this).addClass('highlighted');
   });
-});
+}
