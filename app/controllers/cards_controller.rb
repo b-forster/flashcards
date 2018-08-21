@@ -36,6 +36,10 @@ class CardsController < ApplicationController
   def edit
     @card = Card.find(params[:id])
     @deck = @card.deck
+
+    respond_to do |format|
+      format.html { render :_edit_delete, locals: { card: @card, deck: @deck }, layout: false }
+    end
   end
 
   def update

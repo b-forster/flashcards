@@ -10,11 +10,14 @@
         <td>
           <%= card.back %>
         </td>
+        <td class="hiddenCell">
+          <input type="hidden" class= "card-id-field" value="<%= card.id %>" />
+        </td>
       </tr>
     <% end %>
   </table>
 
-  <div>
+  <div id='edit-delete-selected-card-form'>
     <%= render partial: 'edit_delete', locals: { deck: @deck, card: @cards.first } %>
   </div>
 <% else %>
