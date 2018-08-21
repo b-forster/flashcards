@@ -2,6 +2,7 @@ $( document ).ready(function() {
   highlightRowEvent();
   updateSelectedCardEvent();
   displayDeckSettingsEvent();
+  reviewSessionHandler();
 });
 
 function highlightRowEvent(){
@@ -45,4 +46,8 @@ function displayDeckSettingsEvent(){
     $('.edit-delete-options-overlay').hide();
     $(this).parent().find('.edit-delete-options-overlay').show();
   })
+}
+
+function reviewSessionHandler(){
+  
 }
