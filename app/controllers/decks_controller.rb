@@ -25,9 +25,12 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-    @random_card = @deck.cards.sample
+    @due_cards = @deck.cards
 
-    render :show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @due_cards }
+    end
   end
 
   def edit

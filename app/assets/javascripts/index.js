@@ -19,12 +19,12 @@ function highlightRowEvent(){
 function updateSelectedCardEvent(){
   $('.card-row').on('click', function(){
     // Get ID for selected card
-    $selectedRow = $(this);
+    var $selectedRow = $(this);
 
-    $selectedCardId = $selectedRow.find('.card-id-field').val()
+    var $selectedCardId = $selectedRow.find('.card-id-field').val()
 
     // Get selected card's edit form
-    $cardRequest = $.ajax({
+    var $cardRequest = $.ajax({
       method: 'GET',
       url: 'cards/' + $selectedCardId + '/edit'
     })
@@ -49,5 +49,20 @@ function displayDeckSettingsEvent(){
 }
 
 function reviewSessionHandler(){
-  
+  $('#start-review-btn').on('click', function(){
+    // Remove deck stats view when 'start review' button is clicked
+    $('#deck-stats').remove();
+
+    // Get array of due cards for current deck
+    var $cardsRequest = $.ajax({
+      method: 'GET',
+      url: window.location.pathname,
+      dataType: 'json'
+    });
+
+    // Display review view for due cards in random order
+    $cardsRequest.done(function(response){
+      var $dueCardsArray = response
+    });
+  });
 }

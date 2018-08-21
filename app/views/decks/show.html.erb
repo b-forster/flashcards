@@ -1,38 +1,42 @@
-<h2>Stats for <%= @deck.name %></h2>
+<div id='deck-review-pg'>
+  <div id='deck-stats'>
+    <h2>Stats for <%= @deck.name %></h2>
 
-<table>
-  <tr>
-    <td>Description</td>
-    <td><%= @deck.description %></td>
-  </tr>
-  <tr>
-    <td>Number of cards</td>
-    <td><%= @deck.cards.count %></td>
-  </tr>
-  <tr>
-    <td>Last reviewed</td>
-    <td><%= @deck.last_seen || 'No reviews yet!'%></td>
-  </tr>
-  <tr>
-    <td>Created by</td>
-    <td><%= @deck.created_by.name %></td>
-  </tr>
-</table>
+    <table>
+      <tr>
+        <td>Description</td>
+        <td><%= @deck.description %></td>
+      </tr>
+      <tr>
+        <td>Number of cards</td>
+        <td><%= @deck.cards.count %></td>
+      </tr>
+      <tr>
+        <td>Last reviewed</td>
+        <td><%= @deck.last_seen || 'No reviews yet!'%></td>
+      </tr>
+      <tr>
+        <td>Created by</td>
+        <td><%= @deck.created_by.name %></td>
+      </tr>
+    </table>
 
-<div>
-  <%= button_to new_deck_card_url(@deck), title:'Add card', action: :new, method: :get do %>
-    <%= image_tag("add.png") %>
-  <% end %>
-  <%= button_to deck_cards_path(@deck), title:'View cards list', action: :index, method: :get do %>
-    <%= image_tag("view.png") %>
-  <% end %>
-  <% if @deck.cards.any? %>
-    <%= button_to deck_card_path(@deck, @random_card), title:'Start review', method: :get do %>
-      <%= image_tag("start.png") %>
-    <% end %>
-  <% end %>
-</div>
+    <div>
+      <%= button_to new_deck_card_url(@deck), title:'Add card', action: :new, method: :get do %>
+        <%= image_tag("add.png") %>
+      <% end %>
+      <%= button_to deck_cards_path(@deck), title:'View cards list', action: :index, method: :get do %>
+        <%= image_tag("view.png") %>
+      <% end %>
+      <% if @deck.cards.any? %>
+        <%= button_tag 'Start review', id: 'start-review-btn' do %>
+          <%= image_tag("start.png") %>
+        <% end %>
+      <% end %>
+    </div>
 
-<div>
-  < <%= link_to 'Back to Deck List', decks_path %>
+    <div>
+      < <%= link_to 'Back to Deck List', decks_path %>
+    </div>
+  </div>
 </div>

@@ -7,8 +7,12 @@ class CardsController < ApplicationController
   end
 
   def show
-    @deck = Deck.find(params[:deck_id])
     @card = Card.find(params[:id])
+    @deck = @card.deck
+
+    respond_to do |format|
+      format.html { render :_review, locals: { card: @card, deck: @deck }, layout: false }
+    end
   end
 
   def new
