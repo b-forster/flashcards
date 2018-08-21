@@ -3,10 +3,12 @@
   <% @decks.each do |deck| %>
     <li>
       <%= link_to deck.name, deck%>
-      <%= button_tag :submit do %>
-        <%= image_tag("settings.png") %>
+      <%= button_tag :submit, class: 'edit-delete-options-btn' do %>
+        <%= image_tag('settings.png') %>
       <% end %>
-      <%= render partial: 'edit_delete', locals: { deck: deck } %>
+      <div class='edit-delete-options-overlay'>
+        <%= render partial: 'edit_delete', locals: { deck: deck } %>
+      </div>
     </li>
   <% end %>
 </ul>

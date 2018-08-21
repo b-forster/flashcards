@@ -1,6 +1,7 @@
 $( document ).ready(function() {
   highlightRowEvent();
   updateSelectedCardEvent();
+  displayDeckSettingsEvent();
 });
 
 function highlightRowEvent(){
@@ -33,4 +34,15 @@ function updateSelectedCardEvent(){
     });
     
   });
+}
+
+function displayDeckSettingsEvent(){
+  // Make overlay hidden by default
+  $('.edit-delete-options-overlay').hide();
+
+  // Make overlay visible when settings button is clicked
+  $('.edit-delete-options-btn').on('click', function(){
+    $('.edit-delete-options-overlay').hide();
+    $(this).parent().find('.edit-delete-options-overlay').show();
+  })
 }
