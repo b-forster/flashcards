@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  complete: false
+  cards_count: 1
+  review_count: 1
+  deck: one
+
+two:
+  complete: false
+  cards_count: 1
+  review_count: 1
+  deck: two
