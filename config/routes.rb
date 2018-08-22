@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'games/show'
   get 'errors/not_found'
   get 'errors/internal_server_error'
   root to: 'decks#index' 
