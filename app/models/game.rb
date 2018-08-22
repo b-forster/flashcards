@@ -8,4 +8,12 @@ class Game < ApplicationRecord
   def set_cards_count
     self.cards_count = self.cards.size
   end
+
+  def increment_reviews_count
+    self.reviews_count += 1
+  end
+
+  def complete?
+    self.cards_count == 0
+  end
 end

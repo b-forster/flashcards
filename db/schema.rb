@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2018_08_22_000312) do
   end
 
   create_table "games", force: :cascade do |t|
-    t.boolean "complete", default: false
     t.integer "cards_count"
     t.integer "reviews_count", default: 0
     t.bigint "deck_id"
