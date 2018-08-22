@@ -62,7 +62,7 @@ function reviewSessionHandler(){
 
     // Display review view for due cards in random order
     $cardsRequest.done(function(response){
-      var $dueCardsArray = response
+      console.log(response)
     });
   });
 }

@@ -29,7 +29,17 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @due_cards }
+      format.json { 
+        new_game = Game.create(deck: @deck)
+        
+        @due_cards.each do |card|
+          GameCard.create(
+            game: new_game,
+            card: card
+          )
+        end
+        render json: @due_cards 
+      }
     end
   end
 

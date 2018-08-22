@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :deck
-  has_many :cards, class_name: 'GameCard'
+  has_many :cards, class_name: 'GameCard', dependent: :destroy
   has_one :user, through: :deck
 
   before_save :set_initial_cards_count
