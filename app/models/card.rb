@@ -3,5 +3,5 @@ class Card < ApplicationRecord
   has_one :user, through: :deck
 
   validates :front, :back, presence: true
-  validates :front, :uniqueness => {:scope=>:deck_id, message: 'T'}
+  validates :front, :uniqueness => {:scope=>:deck_id}
 end

@@ -25,7 +25,6 @@ class DecksController < ApplicationController
 
   def show
     @deck = Deck.find(params[:id])
-    @due_cards = @deck.cards
 
     render :show
   end

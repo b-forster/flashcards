@@ -3,7 +3,7 @@ class CreateCards < ActiveRecord::Migration[5.2]
     create_table :cards do |t|
       t.text :front
       t.text :back
-      t.boolean :due
+      t.boolean :due, default: true
       t.references :deck, foreign_key: true
 
       t.timestamps
