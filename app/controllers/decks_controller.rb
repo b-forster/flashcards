@@ -27,20 +27,7 @@ class DecksController < ApplicationController
     @deck = Deck.find(params[:id])
     @due_cards = @deck.cards
 
-    respond_to do |format|
-      format.html { render :show }
-      format.json do 
-        new_game = Game.create(deck: @deck)
-        
-        @due_cards.each do |card|
-          GameCard.create(
-            game: new_game,
-            card: card
-          )
-        end
-        render json: new_game.cards.to_json
-      end
-    end
+    render :show
   end
 
   def edit

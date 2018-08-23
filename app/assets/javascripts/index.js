@@ -2,7 +2,6 @@ $( document ).ready(function() {
   highlightRowEvent();
   updateSelectedCardEvent();
   displayDeckSettingsEvent();
-  reviewSessionHandler();
 });
 
 function highlightRowEvent(){
@@ -46,23 +45,4 @@ function displayDeckSettingsEvent(){
     $('.edit-delete-options-overlay').hide();
     $(this).parent().find('.edit-delete-options-overlay').show();
   })
-}
-
-function reviewSessionHandler(){
-  $('#start-review-btn').on('click', function(){
-    // Remove deck stats view when 'start review' button is clicked
-    $('#deck-stats').remove();
-
-    // Get array of due cards for current deck
-    var $cardsRequest = $.ajax({
-      method: 'GET',
-      url: window.location.pathname,
-      dataType: 'json'
-    });
-
-    // Display review view for due cards in random order
-    $cardsRequest.done(function(response){
-      console.log(response)
-    });
-  });
 }

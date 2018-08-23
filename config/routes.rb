@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'games/show'
   get 'errors/not_found'
   get 'errors/internal_server_error'
   root to: 'decks#index' 
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
   resources :decks do
     resources :cards, dependent: :destroy
   end
+
+  resources :games, only: [:show, :create]
 
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all

@@ -29,7 +29,7 @@
         <%= image_tag("view.png") %>
       <% end %>
       <% if @deck.cards.any? %>
-        <%= button_tag 'Start review', id: 'start-review-btn' do %>
+        <%= button_to games_path, title:'Start Review', params: { game: { deck_id: @deck.id } }, id: 'start-review-btn' do %>
           <%= image_tag("start.png") %>
         <% end %>
       <% end %>
