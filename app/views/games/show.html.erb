@@ -1,6 +1,8 @@
 <h2>Reviewing <%= @deck.name %></h2>
 
-<%= render partial: 'cards/review', locals: { card: @this_card } %>
+<div class='card-review'>
+  <%= render partial: 'cards/review', locals: { card: @this_card } %>
+</div>
 
 <div>
   < <%= link_to 'Quit and Return to Deck', deck_path(@deck) %>

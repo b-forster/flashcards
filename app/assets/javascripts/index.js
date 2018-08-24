@@ -2,6 +2,7 @@ $( document ).ready(function() {
   highlightRowEvent();
   updateSelectedCardEvent();
   displayDeckSettingsEvent();
+  displayAnswerEvent();
 });
 
 function highlightRowEvent(){
@@ -45,4 +46,15 @@ function displayDeckSettingsEvent(){
     $('.edit-delete-options-overlay').hide();
     $(this).parent().find('.edit-delete-options-overlay').show();
   })
+}
+
+// When Show Answer button is clicked, hide button and show card back
+function displayAnswerEvent(){
+  $('.card-back').hide();
+  $('.difficulty-btn-row').hide();
+  $('#show-answer-btn').on('click', function(){
+    $('.show-answer-btn-row').hide();
+    $('.card-back').show();
+    $('.difficulty-btn-row').show();
+  });
 }
