@@ -1,7 +1,10 @@
 class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
-    p @remaining_cards = @game.cards.shuffle
+    @remaining_cards = @game.cards.shuffle
+    @deck = @game.deck
+
+    @this_card = Card.find(@remaining_cards.last.card_id)
 
     render :show
   end

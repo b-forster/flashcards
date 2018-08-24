@@ -1,2 +1,7 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<h2>Reviewing<%= @deck.name %></h2>
+
+<%= render partial: 'cards/review', locals: { card: @this_card } %>
+
+<div>
+  < <%= link_to 'Quit and Return to Deck', deck_path(@deck) %>
+</div>

@@ -1,14 +1,12 @@
-<h2>Reviewing <%= @deck.name %></h2>
-
 <table class='card'>
   <tr class='front'>
     <td>
-      <%= @card.front %>
+      <%= card.front %>
     </td>
   </tr>
   <tr class='back'>
     <td>
-      <%= @card.back %>
+      <%= card.back %>
     </td>
   </tr>
   <tr class='difficulty-btn-row'>
@@ -17,7 +15,3 @@
       <%= button_tag 'Correct' %>
     </td>
 </table>
-
-<div>
-  < <%= link_to 'Quit and Return to Deck', deck_path(@deck) %>
-</div>
