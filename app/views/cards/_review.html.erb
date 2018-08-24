@@ -1,10 +1,15 @@
 <table class='card'>
-  <tr class='front'>
+  <tr class='card-front'>
     <td>
       <%= card.front %>
     </td>
   </tr>
-  <tr class='back'>
+  <tr class='show-answer-btn-row'>
+    <td>
+      <%= button_tag 'Show Answer' %>
+    </td>
+  </tr>
+  <tr class='card-back'>
     <td>
       <%= card.back %>
     </td>
@@ -14,4 +19,5 @@
       <%= button_tag 'Wrong' %>
       <%= button_tag 'Correct' %>
     </td>
+  </tr>
 </table>

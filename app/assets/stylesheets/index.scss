@@ -1,7 +1,14 @@
+// add highlight to currently selected card in cards index
 .highlighted {
   background-color: lavender;
 }
 
+// hide td cells containing card id in cards index
 .hiddenCell {
+  visibility: hidden;
+}
+
+// hide card back and difficulty buttons by default during review
+.card-back, .difficulty-btn-row{
   visibility: hidden;
 }
