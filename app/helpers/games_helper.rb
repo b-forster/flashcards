@@ -4,12 +4,18 @@ module GamesHelper
     @remaining_cards = @game.cards.shuffle
     @deck = @game.deck
 
-    @this_card = Card.find(@remaining_cards.last.card_id)
+    next_card = @remaining_cards.last
+
+    until next_card do
+      next_card = @remaining_cards.last
+    end
+
+    @return_card = Card.find(next_card.card_id)
 
     if request.xhr?
-      render partial: 'cards/review', layout: false, locals: { card: @this_card }
+      render partial: 'cards/review', layout: false, locals: { card: @return_card }
     else
-      render 'games/show'
+      render 'games/show', locals: { card: @return_card }
     end
   end
 end
