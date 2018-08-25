@@ -1,12 +1,17 @@
 class GamesController < ApplicationController
+  include GamesHelper
+
   def show
-    @game = Game.find(params[:id])
-    @remaining_cards = @game.cards.shuffle
-    @deck = @game.deck
+    render_card(params[:id])
+  end
 
-    @this_card = Card.find(@remaining_cards.last.card_id)
+  def correct_answer
+    game_card = GameCard.where(card_id: params[:id]).first
+    game_card.delete
 
-    render :show
+    game_id = game_card.game_id
+
+    render_card(game_id)
   end
 
   def create

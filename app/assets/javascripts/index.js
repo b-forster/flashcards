@@ -3,6 +3,7 @@ $( document ).ready(function() {
   updateSelectedCardEvent();
   displayDeckSettingsEvent();
   displayAnswerEvent();
+  updateRemainingCardsEvent();
 });
 
 function highlightRowEvent(){
@@ -52,9 +53,25 @@ function displayDeckSettingsEvent(){
 function displayAnswerEvent(){
   $('.card-back').hide();
   $('.difficulty-btn-row').hide();
+
   $('#show-answer-btn').on('click', function(){
     $('.show-answer-btn-row').hide();
     $('.card-back').show();
     $('.difficulty-btn-row').show();
+  });
+}
+
+function updateRemainingCardsEvent(){
+  $('#correct-answer-btn').on('click', function(){
+    var cardId = ($(this).val())
+
+    $deleteCardRequest = $.ajax({
+      url: '/correct_answer/' + cardId,
+      method: 'GET'
+    });
+
+    $deleteCardRequest.done(function(response){
+      $('.card-review').replaceWith(response)
+    })
   });
 }

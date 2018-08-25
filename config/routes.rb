@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :games, only: [:show, :create]
+  get 'correct_answer/:id' => 'games#correct_answer'
 
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
