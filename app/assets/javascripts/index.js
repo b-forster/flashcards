@@ -62,7 +62,8 @@ function displayAnswerEvent(){
 }
 
 function updateRemainingCardsEvent(){
-  $('#correct-answer-btn').on('click', function(){
+  $('.card-review').on('click', '.correct-answer-btn', function(){
+
     var cardId = ($(this).val())
 
     $deleteCardRequest = $.ajax({
@@ -70,8 +71,11 @@ function updateRemainingCardsEvent(){
       method: 'GET'
     });
 
+
     $deleteCardRequest.done(function(response){
+      console.log(response)
       $('.card-review').replaceWith(response)
+      $('.card-back').hide();
     })
   });
 }
