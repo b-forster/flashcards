@@ -3,7 +3,8 @@ $( document ).ready(function() {
   updateSelectedCardEvent();
   displayDeckSettingsEvent();
   displayAnswerEvent();
-  updateRemainingCardsEvent();
+  CorrectAnswerEvent();
+  WrongAnswerEvent();
 });
 
 function highlightRowEvent(){
@@ -61,12 +62,29 @@ function displayAnswerEvent(){
   });
 }
 
-function updateRemainingCardsEvent(){
+function CorrectAnswerEvent(){
   $('#card-review').on('click', '#correct-answer-btn', function(){
     var cardId = ($(this).val())
 
     $deleteCardRequest = $.ajax({
       url: '/correct_answer/' + cardId,
+      method: 'GET'
+    });
+
+    $deleteCardRequest.done(function(response){
+      $('.card').replaceWith(response)
+      $('.card-back').hide();
+      $('.difficulty-btn-row').hide();
+    })
+  });
+}
+
+function WrongAnswerEvent(){
+  $('#card-review').on('click', '#wrong-answer-btn', function(){
+    var gameId = window.location.pathname
+
+    $deleteCardRequest = $.ajax({
+      url: gameId,
       method: 'GET'
     });
 
