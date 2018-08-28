@@ -54,7 +54,7 @@ function displayAnswerEvent(){
   $('.card-back').hide();
   $('.difficulty-btn-row').hide();
 
-  $('#show-answer-btn').on('click', function(){
+  $('#card-review').on('click', '#show-answer-btn', function(){
     $('.show-answer-btn-row').hide();
     $('.card-back').show();
     $('.difficulty-btn-row').show();
@@ -62,7 +62,7 @@ function displayAnswerEvent(){
 }
 
 function updateRemainingCardsEvent(){
-  $('#correct-answer-btn').on('click', function(){
+  $('#card-review').on('click', '#correct-answer-btn', function(){
     var cardId = ($(this).val())
 
     $deleteCardRequest = $.ajax({
@@ -71,7 +71,9 @@ function updateRemainingCardsEvent(){
     });
 
     $deleteCardRequest.done(function(response){
-      $('.card-review').replaceWith(response)
+      $('.card').replaceWith(response)
+      $('.card-back').hide();
+      $('.difficulty-btn-row').hide();
     })
   });
 }
